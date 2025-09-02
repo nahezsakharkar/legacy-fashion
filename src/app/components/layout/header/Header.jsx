@@ -6,52 +6,11 @@ import { FiSearch, FiX } from "react-icons/fi";
 import "./Header.scss";
 
 const navItems = [
-  {
-    name: "Clothes",
-    href: "/categories/clothes",
-    submenu: [
-      { label: "Men", href: "/categories/clothes/men" },
-      { label: "Women", href: "/categories/clothes/women" },
-      { label: "Kids", href: "/categories/clothes/kids" },
-      { label: "Formal", href: "/categories/clothes/formal" },
-      { label: "Casual", href: "/categories/clothes/casual" },
-      { label: "Partywear", href: "/categories/clothes/partywear" },
-    ],
-  },
-  {
-    name: "Shoes",
-    href: "/categories/shoes",
-    submenu: [
-      { label: "Sneakers", href: "/categories/shoes/sneakers" },
-      { label: "Formal", href: "/categories/shoes/formal" },
-      { label: "Boots", href: "/categories/shoes/boots" },
-      { label: "Sandals", href: "/categories/shoes/sandals" },
-    ],
-  },
-  {
-    name: "Watches",
-    href: "/categories/watches",
-    submenu: [
-      { label: "Luxury", href: "/categories/watches/luxury" },
-      { label: "Casual", href: "/categories/watches/casual" },
-      { label: "Smartwatches", href: "/categories/watches/smart" },
-    ],
-  },
-  { name: "Bags", href: "/categories/bags" },
-  { name: "Sunglasses", href: "/categories/sunglasses" },
-  { name: "Jewellery", href: "/categories/jewellery" },
-  { name: "Belts", href: "/categories/belts" },
-  {
-    name: "Brands",
-    href: "/brands",
-    submenu: [
-      { label: "Nike", href: "/brands/nike" },
-      { label: "Adidas", href: "/brands/adidas" },
-      { label: "Rolex", href: "/brands/rolex" },
-      { label: "Gucci", href: "/brands/gucci" },
-    ],
-  },
-  { name: "New Arrivals", href: "/latest" },
+  { name: "Discover", href: "/discover" },
+  { name: "Categories", href: "/categories" },
+  { name: "New Arrivals", href: "/new-arriavals" },
+  { name: "Best Sellers", href: "/bestsellers" },
+  { name: "Brands", href: "/brands" },
 ];
 
 // ⚡ Mock product list for search demo
