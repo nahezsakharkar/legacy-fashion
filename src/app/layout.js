@@ -53,13 +53,13 @@ export const metadata = {
 
   // Icons
   icons: {
-    icon: "/assets/favicon.ico",
-    shortcut: "/assets/favicon-16x16.png",
-    apple: "/assets/apple-touch-icon.png",
+    icon: "/assets/icons/favicon.ico",
+    shortcut: "/assets/icons/favicon-16x16.png",
+    apple: "/assets/icons/apple-touch-icon.png",
   },
 
   // Other SEO helpers
-  manifest: "/site.webmanifest",
+  manifest: "/assets/icons/site.webmanifest",
   metadataBase: new URL("https://www.mybrand.com"),
   alternates: {
     canonical: "https://www.mybrand.com",

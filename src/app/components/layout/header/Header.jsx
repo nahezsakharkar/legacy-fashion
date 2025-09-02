@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../../assets/LEGACY_Fashion_Icon_White.png";
 import "./Header.scss";
 
 const navItems = [
@@ -74,7 +73,7 @@ export default function Header() {
         {/* Logo with text (text hidden on mobile) */}
         <Link href="/" className="logo">
           <Image
-            src={logo}
+            src="/assets/icons/LEGACY_Fashion_Icon_White.png"
             alt="Legacy Fashion Logo"
             width={26}
             height={26}
