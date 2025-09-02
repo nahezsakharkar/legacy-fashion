@@ -50,16 +50,6 @@ const navItems = [
       { label: "Gucci", href: "/brands/gucci" },
     ],
   },
-  {
-    name: "Styles",
-    href: "/styles",
-    submenu: [
-      { label: "Casual", href: "/styles/casual" },
-      { label: "Formal", href: "/styles/formal" },
-      { label: "Luxury", href: "/styles/luxury" },
-      { label: "Partywear", href: "/styles/partywear" },
-    ],
-  },
   { name: "New Arrivals", href: "/latest" },
 ];
 
