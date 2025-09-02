@@ -1,0 +1,131 @@
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 0; // remove padding, we'll use inner padding for control
+  font-family: "Poppins", sans-serif;
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: 200px 2fr 1fr 1fr; // logo column + 3 sections
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; // inner padding
+    align-items: stretch; // make all columns stretch same height
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 0;
+    }
+
+    /* Logo */
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111; // keep same bg so it blends in
+
+      img {
+        width: auto;
+        height: 100%;
+        max-height: 200px;
+        object-fit: contain;
+      }
+
+      @media (max-width: 900px) {
+        img {
+          max-height: 200px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        margin-bottom: 1rem;
+
+        img {
+          max-height: 200px;
+        }
+      }
+    }
+
+    /* About Section */
+    .footer-about {
+      padding: 2rem 0rem;
+      h3 {
+        margin-bottom: 0.6rem;
+        font-size: 1.2rem;
+      }
+      p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        color: #ccc;
+      }
+      .footer-socials {
+        display: flex;
+        gap: 1rem;
+
+        a {
+          color: #fff;
+          font-size: 1.2rem;
+          transition: 0.3s;
+
+          &:hover {
+            color: #e5b700;
+          }
+        }
+
+        @media (max-width: 600px) {
+          justify-content: center;
+        }
+      }
+      @media (max-width: 600px) {
+        padding: 1rem;
+      }
+    }
+
+    /* Links (Shop & Customer Service) */
+    .footer-links {
+      padding: 2rem 0rem;
+      h3 {
+        margin-bottom: 0.6rem;
+        font-size: 1.2rem;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 0.5rem;
+          a {
+            color: #ccc;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: 0.3s;
+
+            &:hover {
+              color: #e5b700;
+            }
+          }
+        }
+      }
+      @media (max-width: 600px) {
+        padding: 1rem;
+      }
+    }
+  }
+
+  /* Bottom strip */
+  .footer-bottom {
+    margin-top: 0;
+    border-top: 1px solid #333;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+}

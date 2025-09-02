@@ -1,13 +1,12 @@
 import Header from "../components/layout/header/Header";
+import Footer from "../components/layout/footer/Footer";
 
 const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Header />
       <main>{children}</main>
-      <footer style={{ textAlign: "center", padding: "1rem", color: "#666" }}>
-        © {new Date().getFullYear()} MyBrand. All rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 };
