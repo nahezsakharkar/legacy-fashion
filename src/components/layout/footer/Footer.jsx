@@ -1,10 +1,17 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import "./Footer.scss";
 
 const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -80,7 +87,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Legacy Fashion. All Rights Reserved.</p>
+        <p>© {currentYear} Legacy Fashion. All Rights Reserved.</p>
       </div>
     </footer>
   );

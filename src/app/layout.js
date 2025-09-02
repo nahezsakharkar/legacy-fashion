@@ -1,4 +1,5 @@
-import Layout from "./layout/Layout";
+import Layout from "@/layout/Layout";
+import "./globals.scss";
 
 export const metadata = {
   title: "Legacy Fashion | Luxury Fashion & Accessories",
