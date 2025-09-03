@@ -7,9 +7,9 @@ import "./Header.scss";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { name: "Discover", href: "/discover" },
-  { name: "Categories", href: "/categories" },
-  { name: "New Arrivals", href: "/new_arriavals" },
+  { name: "DISCOVER", href: "/discover" },
+  { name: "CATEGORIES", href: "/categories" },
+  { name: "NEW ARRIVALS", href: "/new_arriavals" },
 ];
 
 // ⚡ Mock product list for search demo
@@ -52,7 +52,7 @@ export default function Header() {
       : [];
 
   return (
-    <header className="apple-header">
+    <header className="header">
       <div className="nav-container">
         {/* Logo */}
         <Link href="/" className="logo">
@@ -106,6 +106,7 @@ export default function Header() {
           >
             <span></span>
             <span></span>
+            <span></span>
           </button>
         </div>
       </div>
@@ -116,7 +117,7 @@ export default function Header() {
           <FiSearch className="search-icon" size={20} />
           <input
             type="text"
-            placeholder="Search LegacyFashion.com"
+            placeholder="Search Premium Products..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             autoFocus={isSearchOpen}

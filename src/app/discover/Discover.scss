@@ -8,11 +8,12 @@
   background: #fff;
   color: #111;
 
+  /* Leave space for fixed header */
+  padding-top: 48px; // same as header height
+
   section {
     width: 100%;
-    max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem;
   }
 
   h2.section-title {
