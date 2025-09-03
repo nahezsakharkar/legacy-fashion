@@ -9,8 +9,6 @@ const navItems = [
   { name: "Discover", href: "/discover" },
   { name: "Categories", href: "/categories" },
   { name: "New Arrivals", href: "/new-arriavals" },
-  { name: "Best Sellers", href: "/bestsellers" },
-  { name: "Brands", href: "/brands" },
 ];
 
 // ⚡ Mock product list for search demo

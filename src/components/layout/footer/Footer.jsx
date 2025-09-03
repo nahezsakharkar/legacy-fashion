@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -30,22 +30,13 @@ const Footer = () => {
         <div className="footer-about">
           <h3>About Our Store</h3>
           <p>
-            Discover Legacy Fashion’s exclusive collection of luxury clothing,
+            Discover Legacy Fashion's exclusive collection of luxury clothing,
             shoes, watches, bags, and accessories. Timeless designs crafted with
             elegance and quality.
           </p>
           <div className="footer-socials">
-            <a href="#" aria-label="Facebook">
-              <FaFacebookF />
-            </a>
             <a href="#" aria-label="Instagram">
               <FaInstagram />
-            </a>
-            <a href="#" aria-label="Twitter">
-              <FaTwitter />
-            </a>
-            <a href="#" aria-label="YouTube">
-              <FaYoutube />
             </a>
           </div>
         </div>
@@ -56,9 +47,6 @@ const Footer = () => {
           <ul>
             <li>
               <Link href="#">New Arrivals</Link>
-            </li>
-            <li>
-              <Link href="#">Best Sellers</Link>
             </li>
             <li>
               <Link href="#">Watches</Link>
