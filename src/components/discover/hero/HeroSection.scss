@@ -4,12 +4,23 @@
   overflow: hidden;
 
   .hero-slide {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    transition: background-image 0.8s ease-in-out;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    transform: scale(1.05); // slight zoom-out effect
+
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     .overlay {
       position: absolute;
@@ -24,6 +35,7 @@
       color: #fff;
       max-width: 500px;
       z-index: 2;
+      animation: fadeInUp 1s ease;
 
       h1 {
         font-size: 3rem;
@@ -32,25 +44,41 @@
 
       p {
         font-size: 1.2rem;
-        margin-bottom: 2rem;
-      }
-
-      .buttons button {
-        padding: 0.7rem 1.5rem;
-        border: none;
-        margin-right: 1rem;
-        font-size: 1rem;
-        cursor: pointer;
-        border-radius: 30px;
-        background: #fff;
-        color: #111;
-        transition: all 0.3s ease;
-
-        &:hover {
-          background: #111;
-          color: #fff;
-        }
       }
     }
+  }
+
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &.prev {
+      left: 20px;
+    }
+    &.next {
+      right: 20px;
+    }
+  }
+
+  &:hover .nav {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

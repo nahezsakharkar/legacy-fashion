@@ -1,25 +1,43 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import "./HeroSection.scss";
 
 const slides = [
   {
     id: 1,
-    image: "/assets/hero1.jpg",
-    title: "Luxury Fashion",
-    description: "Discover timeless fashion pieces for every occasion.",
+    imageLarge: "/assets/images/hero/bags-large.jpg",
+    imageSmall: "/assets/images/hero/bags-small.jpg",
+    title: "Luxury Bags",
+    description: "Carry elegance with our exclusive designer bags collection.",
   },
   {
     id: 2,
-    image: "/assets/hero2.jpg",
-    title: "New Arrivals",
-    description: "Step into the latest trends with our curated selection.",
+    imageLarge: "/assets/images/hero/belts-large.jpg",
+    imageSmall: "/assets/images/hero/belts-small.jpg",
+    title: "Premium Belts",
+    description: "Define your style with high-quality leather belts.",
   },
   {
     id: 3,
-    image: "/assets/hero3.jpg",
-    title: "Best Sellers",
-    description: "Shop the styles our customers love the most.",
+    imageLarge: "/assets/images/hero/footwear-large.jpg",
+    imageSmall: "/assets/images/hero/footwear-small.jpg",
+    title: "Stylish Footwear",
+    description: "Step into comfort and luxury with our latest footwear.",
+  },
+  {
+    id: 4,
+    imageLarge: "/assets/images/hero/sunglasses-large.jpg",
+    imageSmall: "/assets/images/hero/sunglasses-small.jpg",
+    title: "Trendy Sunglasses",
+    description: "Elevate your look with bold and modern eyewear.",
+  },
+  {
+    id: 5,
+    imageLarge: "/assets/images/hero/watches-large.jpg",
+    imageSmall: "/assets/images/hero/watches-small.jpg",
+    title: "Luxury Watches",
+    description: "Timeless pieces that define sophistication and class.",
   },
 ];
 
@@ -31,21 +49,44 @@ const HeroSection = () => {
   const prevSlide = () =>
     setCurrent(current === 0 ? slides.length - 1 : current - 1);
 
+  // Auto-slide every 5s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [current]);
+
   return (
     <section className="hero">
-      <div
-        className="hero-slide"
-        style={{ backgroundImage: `url(${slides[current].image})` }}
-      >
-        <div className="overlay" />
-        <div className="hero-text">
-          <h1>{slides[current].title}</h1>
-          <p>{slides[current].description}</p>
-          <div className="buttons">
-            <button onClick={prevSlide}>Prev</button>
-            <button onClick={nextSlide}>Next</button>
-          </div>
+      {slides.map((slide, index) => (
+        <div
+          key={slide.id}
+          className={`hero-slide ${index === current ? "active" : ""}`}
+        >
+          <picture>
+            {/* Mobile */}
+            <source media="(max-width: 768px)" srcSet={slide.imageSmall} />
+            {/* Desktop */}
+            <img src={slide.imageLarge} alt={slide.title} />
+          </picture>
+
+          <div className="overlay" />
+          {index === current && (
+            <div className="hero-text">
+              <h1>{slide.title}</h1>
+              <p>{slide.description}</p>
+            </div>
+          )}
         </div>
+      ))}
+
+      {/* Arrows */}
+      <div className="nav prev" onClick={prevSlide}>
+        <FiChevronLeft />
+      </div>
+      <div className="nav next" onClick={nextSlide}>
+        <FiChevronRight />
       </div>
     </section>
   );
