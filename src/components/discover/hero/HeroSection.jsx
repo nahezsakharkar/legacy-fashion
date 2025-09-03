@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import "./Hero.scss";
+import "./HeroSection.scss";
 
 const slides = [
   {
@@ -23,7 +23,7 @@ const slides = [
   },
 ];
 
-const Hero = () => {
+const HeroSection = () => {
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () =>
@@ -51,4 +51,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroSection;

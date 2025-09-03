@@ -4,11 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiSearch, FiX } from "react-icons/fi";
 import "./Header.scss";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Discover", href: "/discover" },
   { name: "Categories", href: "/categories" },
-  { name: "New Arrivals", href: "/new-arriavals" },
+  { name: "New Arrivals", href: "/new_arriavals" },
 ];
 
 // ⚡ Mock product list for search demo
@@ -37,6 +38,8 @@ const mockProducts = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+
   const [activeMenu, setActiveMenu] = useState(null);
   const [isMobileOpen, setMobileOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
@@ -74,7 +77,10 @@ export default function Header() {
               onMouseEnter={() => setActiveMenu(item.name)}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <Link href={item.href} className="nav-item">
+              <Link
+                href={item.href}
+                className={`nav-item ${pathname === item.href ? "active" : ""}`}
+              >
                 {item.name}
               </Link>
 

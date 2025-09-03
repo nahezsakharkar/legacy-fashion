@@ -1,5 +1,5 @@
 import React from "react";
-import "./Categories.scss";
+import "./CategoriesSection.scss";
 
 const categories = [
   { name: "Clothes", image: "/assets/cat-clothes.jpg" },
@@ -8,7 +8,7 @@ const categories = [
   { name: "Bags", image: "/assets/cat-bags.jpg" },
 ];
 
-const Categories = () => {
+const CategoriesSection = () => {
   return (
     <section className="categories">
       <h2 className="section-title">Shop by Category</h2>
@@ -26,4 +26,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default CategoriesSection;

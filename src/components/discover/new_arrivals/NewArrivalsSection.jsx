@@ -1,5 +1,5 @@
 import React from "react";
-import "./NewArrivals.scss";
+import "./NewArrivalsSection.scss";
 
 const products = [
   { name: "Elegant Dress", price: "$120", image: "/assets/new1.jpg" },
@@ -7,7 +7,7 @@ const products = [
   { name: "Luxury Shoes", price: "$180", image: "/assets/new3.jpg" },
 ];
 
-const NewArrivals = () => {
+const NewArrivalsSection = () => {
   return (
     <section className="new-arrivals">
       <h2 className="section-title">New Arrivals</h2>
@@ -26,4 +26,4 @@ const NewArrivals = () => {
   );
 };
 
-export default NewArrivals;
+export default NewArrivalsSection;
