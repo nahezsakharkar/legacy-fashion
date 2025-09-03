@@ -9,35 +9,45 @@ const slides = [
     imageLarge: "/assets/images/hero/bags-large.jpg",
     imageSmall: "/assets/images/hero/bags-small.jpg",
     title: "Luxury Bags",
-    description: "Carry elegance with our exclusive designer bags collection.",
+    description:
+      "Carry elegance and sophistication with our exclusive designer bags crafted to perfection.",
+    link: "/categories/bags",
   },
   {
     id: 2,
     imageLarge: "/assets/images/hero/belts-large.jpg",
     imageSmall: "/assets/images/hero/belts-small.jpg",
     title: "Premium Belts",
-    description: "Define your style with high-quality leather belts.",
+    description:
+      "Define your style with high-quality leather belts that enhance any outfit effortlessly.",
+    link: "/categories/belts",
   },
   {
     id: 3,
     imageLarge: "/assets/images/hero/footwear-large.jpg",
     imageSmall: "/assets/images/hero/footwear-small.jpg",
     title: "Stylish Footwear",
-    description: "Step into comfort and luxury with our latest footwear.",
+    description:
+      "Step into comfort and luxury with footwear that blends fashion, quality, and durability.",
+    link: "/categories/footwear",
   },
   {
     id: 4,
     imageLarge: "/assets/images/hero/sunglasses-large.jpg",
     imageSmall: "/assets/images/hero/sunglasses-small.jpg",
     title: "Trendy Sunglasses",
-    description: "Elevate your look with bold and modern eyewear.",
+    description:
+      "Elevate your look with bold and modern eyewear crafted for timeless confidence.",
+    link: "/categories/sunglasses",
   },
   {
     id: 5,
     imageLarge: "/assets/images/hero/watches-large.jpg",
     imageSmall: "/assets/images/hero/watches-small.jpg",
     title: "Luxury Watches",
-    description: "Timeless pieces that define sophistication and class.",
+    description:
+      "Discover timeless pieces that embody sophistication, elegance, and prestige in every tick.",
+    link: "/categories/watches",
   },
 ];
 
@@ -65,9 +75,7 @@ const HeroSection = () => {
           className={`hero-slide ${index === current ? "active" : ""}`}
         >
           <picture>
-            {/* Mobile */}
             <source media="(max-width: 768px)" srcSet={slide.imageSmall} />
-            {/* Desktop */}
             <img src={slide.imageLarge} alt={slide.title} />
           </picture>
 
@@ -76,6 +84,9 @@ const HeroSection = () => {
             <div className="hero-text">
               <h1>{slide.title}</h1>
               <p>{slide.description}</p>
+              <a href={slide.link} className="hero-btn">
+                Explore {slide.title}
+              </a>
             </div>
           )}
         </div>
@@ -87,6 +98,17 @@ const HeroSection = () => {
       </div>
       <div className="nav next" onClick={nextSlide}>
         <FiChevronRight />
+      </div>
+
+      {/* Dots */}
+      <div className="dots">
+        {slides.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === current ? "active" : ""}`}
+            onClick={() => setCurrent(index)}
+          />
+        ))}
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FiSearch, FiX } from "react-icons/fi";
@@ -12,7 +12,6 @@ const navItems = [
   { name: "NEW ARRIVALS", href: "/new_arriavals" },
 ];
 
-// ⚡ Mock product list for search demo
 const mockProducts = [
   {
     id: 1,
@@ -43,6 +42,20 @@ export default function Header() {
   const [isMobileOpen, setMobileOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const filteredProducts =
     query.length >= 3
@@ -52,7 +65,7 @@ export default function Header() {
       : [];
 
   return (
-    <header className="header">
+    <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
         {/* Logo */}
         <Link href="/" className="logo">
@@ -80,16 +93,15 @@ export default function Header() {
                   ? "active"
                   : ""
               }`}
-              onClick={() => setMobileOpen(false)} // close menu on click
+              onClick={() => setMobileOpen(false)}
             >
               {item.name}
             </Link>
           ))}
         </nav>
 
-        {/* Right Actions: Search + Menu */}
+        {/* Right Actions */}
         <div className="right-actions">
-          {/* Search Toggle */}
           <button
             className={`search-toggle ${isSearchOpen ? "active" : ""}`}
             onClick={() => setSearchOpen(true)}
@@ -98,7 +110,6 @@ export default function Header() {
             <FiSearch size={20} />
           </button>
 
-          {/* Mobile Menu Toggle */}
           <button
             className={`menu-toggle ${isMobileOpen ? "active" : ""}`}
             onClick={() => setMobileOpen(!isMobileOpen)}
