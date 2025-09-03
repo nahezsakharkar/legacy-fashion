@@ -40,7 +40,6 @@ const mockProducts = [
 export default function Header() {
   const pathname = usePathname();
 
-  const [activeMenu, setActiveMenu] = useState(null);
   const [isMobileOpen, setMobileOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -71,35 +70,20 @@ export default function Header() {
         {/* Navigation */}
         <nav className={`nav-links ${isMobileOpen ? "open" : ""}`}>
           {navItems.map((item, index) => (
-            <div
+            <Link
               key={index}
-              className="nav-item-wrapper"
-              onMouseEnter={() => setActiveMenu(item.name)}
-              onMouseLeave={() => setActiveMenu(null)}
+              href={item.href}
+              className={`nav-item ${
+                pathname
+                  .replace(/\/$/, "")
+                  .startsWith(item.href.replace(/\/$/, ""))
+                  ? "active"
+                  : ""
+              }`}
+              onClick={() => setMobileOpen(false)} // close menu on click
             >
-              <Link
-                href={item.href}
-                className={`nav-item ${pathname === item.href ? "active" : ""}`}
-              >
-                {item.name}
-              </Link>
-
-              {item.submenu && (
-                <div
-                  className={`dropdown ${
-                    activeMenu === item.name ? "visible" : ""
-                  }`}
-                >
-                  <ul>
-                    {item.submenu.map((sub, i) => (
-                      <li key={i}>
-                        <Link href={sub.href}>{sub.label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+              {item.name}
+            </Link>
           ))}
         </nav>
 
